@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>TOXIFY×ALLROUNDER</title>
+  <title>Toxify×Allrounder</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
@@ -11,6 +11,16 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+    body {
+      background-color: #0a0a0a;
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 60px;
     }
   .popup-overlay {
     position: fixed;
@@ -119,16 +129,6 @@
   .close-btn:hover {
     color: #ff00cc;
   }
-    body {
-      background-color: #0a0a0a;
-      color: #fff;
-      font-family: 'Poppins', sans-serif;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-top: 60px;
-    }
     .tabs {
       display: flex;
       background: #111;
@@ -196,6 +196,22 @@
   font-weight: bold;
   cursor: pointer;
 }
+.iframe-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  background: black;
+}
+
+.iframe-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
 .close-btn:hover {
   color: #1db954;
 }
@@ -337,13 +353,25 @@
         <li><a href="https://t.me/+bBTRZuMcxZ0wNGM1" target="_blank"><i class="fab fa-telegram"></i> Join Telegram</a></li>
 <li><a href="#"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
 <li><a href="https://t.me/+bBTRZuMcxZ0wNGM1" target="_blank"><i class="fas fa-envelope"></i> Contact</a></li>
-<li><a href="t.me/Jkiootu" target="_blank"><i class="fas fa-globe"></i> Make Your Own Web Now</a></li>
+<li><a href="t.me/Jkiootu" target="_blank"><i class="fas fa-globe"></i> Make Your Web</a></li>
       </ul>
     </div>
   </header>
 
   <div id="player-container">
-    <video id="player" playsinline controls></video>
+    <div class="iframe-wrapper">
+ <iframe 
+  id="contentFrame"
+  src="https://prime-video-k3aq.onrender.com/"
+  sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation"
+  frameborder="0"
+  allow="encrypted-media; fullscreen"
+  allowfullscreen
+  scrolling="no"
+  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;">
+</iframe>
+</div>
+
   </div>
 <div id="privacyModal" class="modal">
   <div class="modal-content">
@@ -362,27 +390,26 @@
   <div class="tab-content active" id="chatSection">
     <iframe src="https://allrounder745.github.io/Live-Chat-System-/" title="Live Chat"></iframe>
   </div>
-
-  <div class="tab-content" id="scoreboardSection">
-    <iframe src="https://allrounder745.github.io/Scoreboard-/" title="Scoreboard Widget"></iframe>
-  </div>
 <div class="popup-overlay" id="supportPopup">
   <div class="popup-box">
     <button class="close-btn" onclick="closePopup()">×</button>
     <div class="popup-header">Support Us!</div>
     <div class="popup-subtitle">Join our Telegram channel</div>
-
     <div class="popup-buttons">
-      <button class="popup-btn join-btn" onclick="window.open('https://t.me/+ig6RY3vGe7A4MzNl', '_blank')">Join Now</button>
+      <button class="popup-btn join-btn" onclick="window.open('https://t.me/+6vq3y6963EQ1NGFl', '_blank')">Join Now</button>
       <button class="popup-btn already-btn" onclick="closePopup()">Already Joined</button>
     </div>
   </div>
 </div>
 
+  <div class="tab-content" id="scoreboardSection">
+    <iframe src="https://allrounder745.github.io/Scoreboard-/" title="Scoreboard Widget"></iframe>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
   <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
   <script>
-    const jsonUrl = 'https://raw.githubusercontent.com/StmpupCricket/Fox-Json/refs/heads/main/data.json';
+    const jsonUrl = 'https://raw.githubusercontent.com/StmpupCricket/Star-Sports-Hindi-json/refs/heads/main/data.json';
     fetch(jsonUrl)
       .then(response => response.json())
       .then(data => {
